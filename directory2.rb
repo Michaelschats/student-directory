@@ -23,9 +23,15 @@ def print_header
 end
 
 def print(students)
-  students.each do |student|
-    if student[:name].length > 12
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  copy_of_students = students.map(&:clone)
+  student_number = 1
+  while !copy_of_students.empty?
+    if copy_of_students[0][:name].length < 12
+      puts "#{student_number}. #{copy_of_students[0][:name]} (#{copy_of_students[0][:cohort]} cohort)"
+      student_number += 1
+      copy_of_students.delete_at(0)
+    else
+      copy_of_students.delete_at(0)
     end
   end
 end
