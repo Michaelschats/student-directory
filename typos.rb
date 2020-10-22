@@ -7,8 +7,6 @@ def input_students
 
   # get the first name
   name = gets.chomp
-  break if name.empty? 
-    puts "No students are on this course"
   # while the name is not empty, repeat this code
   while !name.empty? do
   # add the student hash to the array
@@ -27,7 +25,9 @@ def print_header
 end
 
 def print(students)
-  students.each do |student|
+  if students == ""
+    puts []
+  elsif students.each do |student|
     puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
