@@ -1,5 +1,5 @@
 def input_students
-  puts "Please enter the names of the students"
+  puts "Please enter the names of the students and their cohort"
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
@@ -25,8 +25,13 @@ def print_header
 end
 
 def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+   group_cohort = students.map { |student| student[:cohort] }.uniq
+  group_cohort.each do |cohort|
+    students.each_with_index do |student, index|
+      next unless student[:cohort] == cohort
+
+      puts "Student #{index + 1}: #{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 
