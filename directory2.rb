@@ -4,16 +4,16 @@ def input_students
   # create an empty array
   students = []
   # get the first name
-  name = gets.chomp
-  cohort = gets.chomp
+  name = gets.strip
+  cohort = gets.strip
   # while the name is not empty, repeat this code
   while !name.empty? && !cohort.empty? do
     # add the student hash to the array
     students << {name: name, cohort: cohort}
     puts "Now we have #{students.count} students"
     # get another name from user
-    name = gets.chomp
-    cohort = gets.chomp
+    name = gets.strip
+    cohort = gets.strip
   end
   # return array of input_students
   students
