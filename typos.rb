@@ -7,6 +7,8 @@ def input_students
 
   # get the first name
   name = gets.chomp
+  break if name.empty? 
+    puts "No students are on this course"
   # while the name is not empty, repeat this code
   while !name.empty? do
   # add the student hash to the array
